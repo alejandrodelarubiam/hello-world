@@ -3,8 +3,7 @@
 version: 2.1
 
 orbs:
-  hello-world: sample-orbs/hello-world@0.0.10
-  node: circleci/node@5.1.0
+say-hello-workflow: circleci/welcome-orb@0.4.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:  
