@@ -74,3 +74,4 @@ workflows:
       - print_output_file:
           requires:
             - save_output
+      - command_lesson
