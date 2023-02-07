@@ -1,7 +1,13 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-
+commands:
+  print_pipeline_id:
+    description: "A very simple command for demonstration purposes"
+    steps:
+      - run:
+          name: "Say Circle CI Workflow ID"
+          command: echo " $CIRCLE_WORKFLOW_ID "
 orbs:
   welcome: circleci/welcome-orb@0.4.1
 # Define a job to be invoked later in a workflow.
@@ -14,8 +20,8 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - run:
-          name: "Say hello"
-          command: echo Hello
+          name: "Say Circle CI Workflow ID"
+          command: echo " hello "
   print_world:
     docker:
       - image: circleci/node:13.8.0
@@ -47,6 +53,13 @@ jobs:
       - run:
           name: Print output.txt
           command: cat output.txt
+  command_lesson:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run:
+          name: "Running saved command"
+          command: print_pipeline_id
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
